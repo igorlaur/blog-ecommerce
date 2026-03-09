@@ -25,7 +25,7 @@ export default function Footer() {
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-3">
               <div className="w-8 h-8 rounded-lg bg-orange-500 flex items-center justify-center text-white font-black text-sm">E</div>
-              <span className="text-white font-bold">Escala <span className="text-orange-400">Digital</span></span>
+              <span className="text-white font-bold">Escala <span className="text-orange-400">Ecommerce</span></span>
             </div>
             <p className="text-xs text-gray-500 leading-relaxed">
               Consultoria especializada em e-commerce e marketplaces. +R$5M em vendas, 3.000+ SKUs e operação em 9 plataformas.
@@ -84,7 +84,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-gray-600">
-          <p>© {new Date().getFullYear()} Escala Digital. Todos os direitos reservados.</p>
+          <p>© {new Date().getFullYear()} Escala Ecommerce. Todos os direitos reservados.</p>
           <div className="flex gap-4">
             <Link href="/blog" className="hover:text-orange-400 transition">Blog</Link>
             <Link href="/consultoria" className="hover:text-orange-400 transition">Consultoria</Link>

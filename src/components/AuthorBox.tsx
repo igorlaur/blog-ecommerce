@@ -21,7 +21,7 @@ export default function AuthorBox({ compact = false }: Props) {
           C
         </div>
         <div>
-          <p className="text-sm font-semibold text-gray-900">Consultor Escala Digital</p>
+          <p className="text-sm font-semibold text-gray-900">Consultor Escala Ecommerce</p>
           <p className="text-xs text-gray-500">+R$5M em vendas · Especialista em Marketplaces</p>
         </div>
       </div>
@@ -40,7 +40,7 @@ export default function AuthorBox({ compact = false }: Props) {
         {/* Bio */}
         <div className="flex-1">
           <p className="text-xs text-orange-500 font-bold uppercase tracking-widest mb-1">Sobre o Autor</p>
-          <h3 className="text-xl font-extrabold text-gray-900 mb-1">Consultor Escala Digital</h3>
+          <h3 className="text-xl font-extrabold text-gray-900 mb-1">Consultor Escala Ecommerce</h3>
           <p className="text-sm text-gray-500 mb-4">
             Especialista em e-commerce e marketplaces com mais de R$5 milhões em vendas na prática. 
             Gerenciei mais de 3.000 SKUs, operei loja oficial no Mercado Livre, trabalhei com importação, 

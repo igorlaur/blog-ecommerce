@@ -7,13 +7,13 @@ import Footer from '@/components/Footer';
 const geist = Geist({ subsets: ['latin'], display: 'swap' });
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://seusite.com.br';
-const SITE_NAME = 'Escala Digital Blog';
+const SITE_NAME = 'Escala Ecommerce Blog';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Consultoria de E-commerce | Escala Digital Blog',
-    template: '%s | Escala Digital',
+    default: 'Consultoria de E-commerce | Escala Ecommerce Blog',
+    template: '%s | Escala Ecommerce',
   },
   description:
     'Estratégias reais de e-commerce, marketplaces, tráfego pago e escala de operações digitais. +R$5M em vendas, 3.000+ SKUs, 9+ plataformas.',
@@ -27,22 +27,22 @@ export const metadata: Metadata = {
     'consultor marketplace',
     'como vender no mercado livre',
   ],
-  authors: [{ name: 'Escala Digital', url: SITE_URL }],
-  creator: 'Escala Digital',
-  publisher: 'Escala Digital',
+  authors: [{ name: 'Escala Ecommerce', url: SITE_URL }],
+  creator: 'Escala Ecommerce',
+  publisher: 'Escala Ecommerce',
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   openGraph: {
     siteName: SITE_NAME,
     locale: 'pt_BR',
     type: 'website',
     url: SITE_URL,
-    title: 'Consultoria de E-commerce | Escala Digital Blog',
+    title: 'Consultoria de E-commerce | Escala Ecommerce Blog',
     description:
       'Estratégias reais de e-commerce e marketplaces. +R$5M em vendas, loja oficial Mercado Livre, operação multicanal.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Consultoria de E-commerce | Escala Digital Blog',
+    title: 'Consultoria de E-commerce | Escala Ecommerce Blog',
     description: 'Estratégias reais de e-commerce e marketplaces. +R$5M em vendas.',
   },
   alternates: { canonical: SITE_URL },

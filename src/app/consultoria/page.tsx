@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Consultoria de E-commerce e Marketplaces | Escala Digital',
+  title: 'Consultoria de E-commerce e Marketplaces | Escala Ecommerce',
   description:
     'Consultoria especializada em e-commerce, Mercado Livre, Shopee, Magalu e marketplaces. +R$5M em vendas, 3.000+ SKUs, operação multicanal. Agende sua sessão estratégica.',
   keywords: 'consultoria ecommerce, consultor ecommerce, consultoria mercado livre, consultoria shopee, consultoria marketplace, especialista ecommerce',
   alternates: { canonical: '/consultoria' },
   openGraph: {
-    title: 'Consultoria de E-commerce | Escala Digital',
+    title: 'Consultoria de E-commerce | Escala Ecommerce',
     description: 'Consultoria especializada em e-commerce e marketplaces. +R$5M em vendas reais.',
     type: 'website',
   },
@@ -84,7 +84,7 @@ const consultoriaSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'Consultoria de E-commerce',
-  provider: { '@type': 'Organization', name: 'Escala Digital' },
+  provider: { '@type': 'Organization', name: 'Escala Ecommerce' },
   description:
     'Consultoria especializada em e-commerce, Mercado Livre, Shopee e marketplaces. +R$5M em vendas, 3.000+ SKUs, operação multicanal.',
   areaServed: 'BR',

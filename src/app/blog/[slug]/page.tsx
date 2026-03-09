@@ -26,7 +26,7 @@ export async function generateMetadata(
     title: post.title,
     description: post.description,
     keywords: post.keywords,
-    authors: [{ name: post.author ?? 'Escala Digital' }],
+    authors: [{ name: post.author ?? 'Escala Ecommerce' }],
     alternates: { canonical: url },
     openGraph: {
       type: 'article',
@@ -34,7 +34,7 @@ export async function generateMetadata(
       title: post.title,
       description: post.description,
       publishedTime: post.date,
-      authors: [post.author ?? 'Escala Digital'],
+      authors: [post.author ?? 'Escala Ecommerce'],
     },
     twitter: {
       card: 'summary_large_image',
@@ -75,12 +75,12 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
     url,
     author: {
       '@type': 'Person',
-      name: post.author ?? 'Consultor Escala Digital',
+      name: post.author ?? 'Consultor Escala Ecommerce',
       url: SITE_URL,
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Escala Digital',
+      name: 'Escala Ecommerce',
       url: SITE_URL,
     },
   };

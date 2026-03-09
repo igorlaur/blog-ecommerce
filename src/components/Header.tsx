@@ -22,7 +22,7 @@ export default function Header() {
             E
           </div>
           <span className="font-bold text-gray-900">
-            Escala <span className="text-orange-500">Digital</span>
+            Escala <span className="text-orange-500">Ecommerce</span>
           </span>
         </Link>
 

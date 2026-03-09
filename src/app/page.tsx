@@ -4,7 +4,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Consultoria de E-commerce e Marketplaces | Escala Digital Blog',
+  title: 'Consultoria de E-commerce e Marketplaces | Escala Ecommerce Blog',
   description:
     'Estratégias práticas de consultoria em e-commerce, Mercado Livre, Shopee e marketplaces. Conteúdo baseado em +R$5M em vendas reais.',
   alternates: { canonical: '/' },
@@ -175,7 +175,7 @@ export default function Home() {
               <div className="w-20 h-20 rounded-2xl bg-orange-500 flex items-center justify-center text-white font-black text-4xl mx-auto mb-5">
                 C
               </div>
-              <h3 className="text-white font-extrabold text-lg mb-1">Consultor Escala Digital</h3>
+              <h3 className="text-white font-extrabold text-lg mb-1">Consultor Escala Ecommerce</h3>
               <p className="text-gray-400 text-sm mb-5">Especialista em E-commerce &amp; Marketplaces</p>
               <a
                 href="https://wa.me/5511999999999?text=Olá%2C%20vim%20pelo%20blog%20e%20quero%20saber%20mais%20sobre%20consultoria%20de%20e-commerce"
