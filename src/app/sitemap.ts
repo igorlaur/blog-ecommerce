@@ -1,7 +1,7 @@
 import { getAllPosts, getAllCategories, categoryToSlug } from '@/lib/posts';
 import type { MetadataRoute } from 'next';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://seusite.com.br';
+const SITE_URL = 'https://escalaecommerce.com.br';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
