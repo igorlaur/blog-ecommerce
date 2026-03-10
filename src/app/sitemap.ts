@@ -8,14 +8,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const categories = getAllCategories();
 
   const postUrls: MetadataRoute.Sitemap = posts.map(post => ({
-    url: `${SITE_URL}/blog/blog/${post.slug}`,
+    url: `${SITE_URL}/blog/${post.slug}`,
     lastModified: new Date(post.date),
     changeFrequency: 'monthly',
     priority: 0.8,
   }));
 
   const categoryUrls: MetadataRoute.Sitemap = categories.map(cat => ({
-    url: `${SITE_URL}/blog/blog/categoria/${categoryToSlug(cat)}`,
+    url: `${SITE_URL}/blog/categoria/${categoryToSlug(cat)}`,
     lastModified: new Date(),
     changeFrequency: 'weekly',
     priority: 0.7,
