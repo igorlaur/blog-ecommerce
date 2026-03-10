@@ -20,7 +20,7 @@ export default function CTAConsultoria({ variant = 'default' }: Props) {
           rel="noopener noreferrer"
           className="inline-block bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition"
         >
-          Agendar consultoria gratuita â†’
+          Agendar consultoria →
         </a>
       </div>
     );
@@ -43,7 +43,7 @@ export default function CTAConsultoria({ variant = 'default' }: Props) {
             rel="noopener noreferrer"
             className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 rounded-xl transition"
           >
-            Agendar consultoria gratuita
+            Agendar consultoria
           </a>
           <Link
             href="/consultoria"

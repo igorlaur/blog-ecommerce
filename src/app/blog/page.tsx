@@ -78,7 +78,7 @@ export default function BlogPage() {
           rel="noopener noreferrer"
           className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 rounded-xl transition"
         >
-          Agendar consultoria gratuita
+          Agendar consultoria
         </a>
       </div>
     </div>

@@ -58,7 +58,7 @@ export default function HeroSection() {
             href="#contato"
             className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 rounded-xl text-lg shadow-lg shadow-orange-500/30 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-400"
           >
-            Agendar Consultoria Gratuita
+            Agendar Consultoria
           </a>
           <a
             href="https://wa.me/5511952286097"

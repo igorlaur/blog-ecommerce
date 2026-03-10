@@ -95,7 +95,7 @@ export default async function CategoryPage(
           rel="noopener noreferrer"
           className="inline-block bg-white text-orange-600 font-bold px-8 py-3 rounded-xl hover:bg-orange-50 transition text-sm"
         >
-          Agendar consultoria gratuita
+          Agendar consultoria
         </a>
       </div>
     </div>
