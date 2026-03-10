@@ -54,7 +54,10 @@ export function extractToc(content: string): TocItem[] {
   let match;
   while ((match = headingRegex.exec(content)) !== null) {
     const level = match[1].length;
-    const text = match[2].replace(/\*\*/g, '').replace(/`/g, '').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+    const text = match[2]
+      .replace(/\*\*/g, '')
+      .replace(/`/g, '')
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
     items.push({ id: toSlugId(text), text, level });
   }
   return items;
