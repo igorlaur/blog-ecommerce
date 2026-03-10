@@ -136,7 +136,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
                 <p className="text-sm font-bold text-gray-900 mb-2">Pronto para escalar?</p>
                 <p className="text-xs text-gray-500 mb-3">Consultoria personalizada para seu e-commerce.</p>
                 <a
-                  href="https://wa.me/5511999999999?text=Olá%2C%20vim%20pelo%20blog%20e%20quero%20saber%20mais%20sobre%20consultoria%20de%20e-commerce"
+                  href="https://wa.me/5511952286097?text=Olá%2C%20vim%20pelo%20blog%20e%20quero%20saber%20mais%20sobre%20consultoria%20de%20e-commerce"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block bg-orange-500 hover:bg-orange-600 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition"

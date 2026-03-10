@@ -1,15 +1,15 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Agendar Consultoria de E-commerce',
   description:
-    'Entre em contato para agendar sua consultoria de e-commerce e marketplaces. Diagnóstico gratuito disponível.',
+    'Entre em contato para agendar sua consultoria de e-commerce e marketplaces. DiagnÃ³stico gratuito disponÃ­vel.',
   alternates: { canonical: '/contato' },
 };
 
 export default function ContatoPage() {
   const whatsappMsg =
-    'Olá%2C%20vim%20pelo%20blog%20e%20gostaria%20de%20agendar%20uma%20consultoria%20de%20e-commerce';
+    'OlÃ¡%2C%20vim%20pelo%20blog%20e%20gostaria%20de%20agendar%20uma%20consultoria%20de%20e-commerce';
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-16">
@@ -20,7 +20,7 @@ export default function ContatoPage() {
           Agende sua consultoria
         </h1>
         <p className="text-gray-500 max-w-xl mx-auto">
-          Preencha o formulário abaixo ou entre em contato direto pelo WhatsApp. O diagnóstico inicial é gratuito.
+          Preencha o formulÃ¡rio abaixo ou entre em contato direto pelo WhatsApp. O diagnÃ³stico inicial Ã© gratuito.
         </p>
       </div>
 
@@ -29,7 +29,7 @@ export default function ContatoPage() {
         <div className="bg-white border border-gray-100 rounded-2xl p-8 shadow-sm">
           <h2 className="font-extrabold text-gray-900 mb-5">Enviar mensagem</h2>
           <form
-            action={`https://wa.me/5511999999999`}
+            action={`https://wa.me/5511952286097`}
             method="GET"
             target="_blank"
             rel="noopener noreferrer"
@@ -75,18 +75,18 @@ export default function ContatoPage() {
             </div>
             <div>
               <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-1">
-                Sobre sua operação
+                Sobre sua operaÃ§Ã£o
               </label>
               <textarea
                 id="message"
                 name="message"
                 rows={4}
-                placeholder="Conte um pouco sobre sua operação de e-commerce, desafios e objetivos..."
+                placeholder="Conte um pouco sobre sua operaÃ§Ã£o de e-commerce, desafios e objetivos..."
                 className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-400 transition resize-none"
               />
             </div>
             <a
-              href={`https://wa.me/5511999999999?text=${whatsappMsg}`}
+              href={`https://wa.me/5511952286097?text=${whatsappMsg}`}
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3.5 rounded-xl text-center transition"
@@ -100,12 +100,12 @@ export default function ContatoPage() {
         <div className="space-y-6">
           {/* WhatsApp card */}
           <div className="bg-green-50 border border-green-100 rounded-2xl p-6">
-            <h3 className="font-bold text-gray-900 mb-1">📱 WhatsApp (Resposta rápida)</h3>
+            <h3 className="font-bold text-gray-900 mb-1">ðŸ“± WhatsApp (Resposta rÃ¡pida)</h3>
             <p className="text-gray-500 text-sm mb-4">
-              Para retorno mais rápido, entre em contato diretamente pelo WhatsApp. Respondemos em até 2h durante o horário comercial.
+              Para retorno mais rÃ¡pido, entre em contato diretamente pelo WhatsApp. Respondemos em atÃ© 2h durante o horÃ¡rio comercial.
             </p>
             <a
-              href={`https://wa.me/5511999999999?text=${whatsappMsg}`}
+              href={`https://wa.me/5511952286097?text=${whatsappMsg}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-xl text-sm transition"
@@ -114,18 +114,18 @@ export default function ContatoPage() {
             </a>
           </div>
 
-          {/* Diagnóstico card */}
+          {/* DiagnÃ³stico card */}
           <div className="bg-orange-50 border border-orange-100 rounded-2xl p-6">
-            <h3 className="font-bold text-gray-900 mb-1">🔍 O que é o diagnóstico gratuito?</h3>
+            <h3 className="font-bold text-gray-900 mb-1">ðŸ” O que Ã© o diagnÃ³stico gratuito?</h3>
             <ul className="space-y-2 text-sm text-gray-600 mt-3">
               {[
-                'Análise dos seus canais de venda atuais',
-                'Identificação dos principais gargalos',
+                'AnÃ¡lise dos seus canais de venda atuais',
+                'IdentificaÃ§Ã£o dos principais gargalos',
                 'Oportunidades de crescimento imediato',
-                'Plano de ação com próximos passos',
+                'Plano de aÃ§Ã£o com prÃ³ximos passos',
               ].map(item => (
                 <li key={item} className="flex items-start gap-2">
-                  <span className="text-orange-500">✓</span>
+                  <span className="text-orange-500">âœ“</span>
                   <span>{item}</span>
                 </li>
               ))}

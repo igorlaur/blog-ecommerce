@@ -44,7 +44,7 @@ export default function Header() {
 
         {/* CTA */}
         <a
-          href="https://wa.me/5511999999999"
+          href="https://wa.me/5511952286097"
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:inline-flex items-center gap-2 bg-orange-500 text-white px-5 py-2.5 rounded-lg hover:bg-orange-600 transition text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-orange-400"
@@ -82,7 +82,7 @@ export default function Header() {
             </Link>
           ))}
           <a
-            href="https://wa.me/5511999999999"
+            href="https://wa.me/5511952286097"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-orange-500 text-white px-5 py-3 rounded-lg text-center font-semibold hover:bg-orange-600 transition mt-2"

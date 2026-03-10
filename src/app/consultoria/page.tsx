@@ -1,10 +1,10 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Consultoria de E-commerce e Marketplaces | Escala Ecommerce',
   description:
-    'Consultoria especializada em e-commerce, Mercado Livre, Shopee, Magalu e marketplaces. +R$5M em vendas, 3.000+ SKUs, operação multicanal. Agende sua sessão estratégica.',
+    'Consultoria especializada em e-commerce, Mercado Livre, Shopee, Magalu e marketplaces. +R$5M em vendas, 3.000+ SKUs, operaÃ§Ã£o multicanal. Agende sua sessÃ£o estratÃ©gica.',
   keywords: 'consultoria ecommerce, consultor ecommerce, consultoria mercado livre, consultoria shopee, consultoria marketplace, especialista ecommerce',
   alternates: { canonical: '/consultoria' },
   openGraph: {
@@ -16,42 +16,42 @@ export const metadata: Metadata = {
 
 const SERVICES = [
   {
-    icon: '🛒',
+    icon: 'ðŸ›’',
     title: 'Consultoria Mercado Livre',
-    desc: 'Otimização de anúncios, ML Ads, reputação, catálogo e estratégias para atingir Loja Oficial.',
+    desc: 'OtimizaÃ§Ã£o de anÃºncios, ML Ads, reputaÃ§Ã£o, catÃ¡logo e estratÃ©gias para atingir Loja Oficial.',
   },
   {
-    icon: '🧡',
+    icon: 'ðŸ§¡',
     title: 'Consultoria Shopee',
-    desc: 'Configuração de loja, campanhas, frete, produtos patrocinados e crescimento nas primeiras páginas.',
+    desc: 'ConfiguraÃ§Ã£o de loja, campanhas, frete, produtos patrocinados e crescimento nas primeiras pÃ¡ginas.',
   },
   {
-    icon: '🏪',
-    title: 'Estratégia Multicanal',
-    desc: 'Operação simultânea em Mercado Livre, Shopee, Magalu, Shein, iFood, Rappi e site próprio.',
+    icon: 'ðŸª',
+    title: 'EstratÃ©gia Multicanal',
+    desc: 'OperaÃ§Ã£o simultÃ¢nea em Mercado Livre, Shopee, Magalu, Shein, iFood, Rappi e site prÃ³prio.',
   },
   {
-    icon: '🎯',
-    title: 'Tráfego Pago (ML Ads + Google Ads)',
+    icon: 'ðŸŽ¯',
+    title: 'TrÃ¡fego Pago (ML Ads + Google Ads)',
     desc: 'Campanhas de Product Ads, Sponsored Brands e Google Shopping com ROI positivo comprovado.',
   },
   {
-    icon: '📦',
-    title: 'Gestão de Catálogo e SKUs',
-    desc: 'Estruturação de catálogo, gestão de EAN, variações, kits e bundles para maximizar ticket médio.',
+    icon: 'ðŸ“¦',
+    title: 'GestÃ£o de CatÃ¡logo e SKUs',
+    desc: 'EstruturaÃ§Ã£o de catÃ¡logo, gestÃ£o de EAN, variaÃ§Ãµes, kits e bundles para maximizar ticket mÃ©dio.',
   },
   {
-    icon: '🏷️',
-    title: 'Private Label e Importação',
-    desc: 'Desenvolvimento de produtos de marca própria, importação, negociação com fornecedores e gestão de EAN.',
+    icon: 'ðŸ·ï¸',
+    title: 'Private Label e ImportaÃ§Ã£o',
+    desc: 'Desenvolvimento de produtos de marca prÃ³pria, importaÃ§Ã£o, negociaÃ§Ã£o com fornecedores e gestÃ£o de EAN.',
   },
 ];
 
 const STEPS = [
-  { num: '01', title: 'Diagnóstico gratuito', desc: 'Análise completa da sua operação atual: canais, produtos, métricas e gargalos.' },
-  { num: '02', title: 'Plano estratégico', desc: 'Elaboração de um plano de crescimento personalizado com metas claras e ações prioritárias.' },
-  { num: '03', title: 'Implementação', desc: 'Acompanhamento semanal na execução das estratégias, ajustes e otimizações contínuas.' },
-  { num: '04', title: 'Escala', desc: 'Expansão para novos canais, produtos e estratégias de tráfego pago para acelerar os resultados.' },
+  { num: '01', title: 'DiagnÃ³stico gratuito', desc: 'AnÃ¡lise completa da sua operaÃ§Ã£o atual: canais, produtos, mÃ©tricas e gargalos.' },
+  { num: '02', title: 'Plano estratÃ©gico', desc: 'ElaboraÃ§Ã£o de um plano de crescimento personalizado com metas claras e aÃ§Ãµes prioritÃ¡rias.' },
+  { num: '03', title: 'ImplementaÃ§Ã£o', desc: 'Acompanhamento semanal na execuÃ§Ã£o das estratÃ©gias, ajustes e otimizaÃ§Ãµes contÃ­nuas.' },
+  { num: '04', title: 'Escala', desc: 'ExpansÃ£o para novos canais, produtos e estratÃ©gias de trÃ¡fego pago para acelerar os resultados.' },
 ];
 
 const STATS = [
@@ -64,19 +64,19 @@ const STATS = [
 const FAQS = [
   {
     q: 'Quanto tempo dura a consultoria?',
-    a: 'A consultoria pode ser pontual (sessão única de diagnóstico) ou contínua (acompanhamento mensal). O formato ideal é definido conforme seus objetivos.',
+    a: 'A consultoria pode ser pontual (sessÃ£o Ãºnica de diagnÃ³stico) ou contÃ­nua (acompanhamento mensal). O formato ideal Ã© definido conforme seus objetivos.',
   },
   {
-    q: 'A consultoria é para iniciantes ou veteranos?',
-    a: 'Atendemos desde quem está começando até operações com faturamento acima de R$500k/mês. O plano é sempre personalizado para o seu momento.',
+    q: 'A consultoria Ã© para iniciantes ou veteranos?',
+    a: 'Atendemos desde quem estÃ¡ comeÃ§ando atÃ© operaÃ§Ãµes com faturamento acima de R$500k/mÃªs. O plano Ã© sempre personalizado para o seu momento.',
   },
   {
-    q: 'Vocês trabalham com todos os marketplaces?',
-    a: 'Sim. Temos experiência em Mercado Livre, Shopee, Magalu, Shein, iFood, Rappi e site próprio (Shopify/Nuvemshop).',
+    q: 'VocÃªs trabalham com todos os marketplaces?',
+    a: 'Sim. Temos experiÃªncia em Mercado Livre, Shopee, Magalu, Shein, iFood, Rappi e site prÃ³prio (Shopify/Nuvemshop).',
   },
   {
-    q: 'Como funciona a primeira sessão?',
-    a: 'A primeira sessão é um diagnóstico gratuito. Analisamos sua operação e apresentamos as principais oportunidades de crescimento.',
+    q: 'Como funciona a primeira sessÃ£o?',
+    a: 'A primeira sessÃ£o Ã© um diagnÃ³stico gratuito. Analisamos sua operaÃ§Ã£o e apresentamos as principais oportunidades de crescimento.',
   },
 ];
 
@@ -86,7 +86,7 @@ const consultoriaSchema = {
   name: 'Consultoria de E-commerce',
   provider: { '@type': 'Organization', name: 'Escala Ecommerce' },
   description:
-    'Consultoria especializada em e-commerce, Mercado Livre, Shopee e marketplaces. +R$5M em vendas, 3.000+ SKUs, operação multicanal.',
+    'Consultoria especializada em e-commerce, Mercado Livre, Shopee e marketplaces. +R$5M em vendas, 3.000+ SKUs, operaÃ§Ã£o multicanal.',
   areaServed: 'BR',
   serviceType: 'Consultoria de E-commerce',
 };
@@ -107,7 +107,7 @@ export default function ConsultoriaPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(consultoriaSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      {/* ── HERO ── */}
+      {/* â”€â”€ HERO â”€â”€ */}
       <section className="bg-white border-b border-gray-100 py-16 md:py-24">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <span className="inline-block text-orange-500 text-xs font-bold uppercase tracking-widest bg-orange-50 px-3 py-1 rounded-full mb-4">
@@ -118,17 +118,17 @@ export default function ConsultoriaPage() {
             <span className="text-orange-500">Marketplaces</span>
           </h1>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto mb-8">
-            Diagnóstico completo + plano de crescimento personalizado para você vender mais no Mercado Livre,
-            Shopee, Magalu e outros marketplaces. Baseado em operação real com +R$5M em vendas.
+            DiagnÃ³stico completo + plano de crescimento personalizado para vocÃª vender mais no Mercado Livre,
+            Shopee, Magalu e outros marketplaces. Baseado em operaÃ§Ã£o real com +R$5M em vendas.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="https://wa.me/5511999999999?text=Olá%2C%20quero%20saber%20mais%20sobre%20a%20consultoria%20de%20e-commerce"
+              href="https://wa.me/5511952286097?text=OlÃ¡%2C%20quero%20saber%20mais%20sobre%20a%20consultoria%20de%20e-commerce"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl transition shadow-lg shadow-orange-200"
             >
-              Agendar diagnóstico gratuito
+              Agendar diagnÃ³stico gratuito
             </a>
             <Link
               href="/blog"
@@ -140,7 +140,7 @@ export default function ConsultoriaPage() {
         </div>
       </section>
 
-      {/* ── STATS ── */}
+      {/* â”€â”€ STATS â”€â”€ */}
       <section className="bg-gray-900 py-8">
         <div className="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {STATS.map(s => (
@@ -152,11 +152,11 @@ export default function ConsultoriaPage() {
         </div>
       </section>
 
-      {/* ── SERVICES ── */}
+      {/* â”€â”€ SERVICES â”€â”€ */}
       <section className="max-w-5xl mx-auto px-6 py-16">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-extrabold text-gray-900">O que a consultoria cobre</h2>
-          <p className="text-gray-500 mt-2">Especialização em todas as frentes do e-commerce moderno.</p>
+          <p className="text-gray-500 mt-2">EspecializaÃ§Ã£o em todas as frentes do e-commerce moderno.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {SERVICES.map(s => (
@@ -169,12 +169,12 @@ export default function ConsultoriaPage() {
         </div>
       </section>
 
-      {/* ── HOW IT WORKS ── */}
+      {/* â”€â”€ HOW IT WORKS â”€â”€ */}
       <section className="bg-gray-50 py-16">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-extrabold text-gray-900">Como funciona</h2>
-            <p className="text-gray-500 mt-2">Um processo estruturado do diagnóstico à escala.</p>
+            <p className="text-gray-500 mt-2">Um processo estruturado do diagnÃ³stico Ã  escala.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {STEPS.map(step => (
@@ -190,7 +190,7 @@ export default function ConsultoriaPage() {
         </div>
       </section>
 
-      {/* ── FAQ ── */}
+      {/* â”€â”€ FAQ â”€â”€ */}
       <section className="max-w-3xl mx-auto px-6 py-16">
         <h2 className="text-2xl font-extrabold text-gray-900 text-center mb-8">Perguntas frequentes</h2>
         <div className="divide-y divide-gray-100 border border-gray-100 rounded-xl overflow-hidden">
@@ -206,22 +206,22 @@ export default function ConsultoriaPage() {
         </div>
       </section>
 
-      {/* ── FINAL CTA ── */}
+      {/* â”€â”€ FINAL CTA â”€â”€ */}
       <section className="bg-gradient-to-br from-orange-500 to-orange-600 py-16">
         <div className="max-w-3xl mx-auto px-6 text-center text-white">
           <h2 className="text-3xl font-extrabold mb-3">
             Pronto para escalar seu e-commerce?
           </h2>
           <p className="text-orange-100 mb-8 max-w-xl mx-auto">
-            Agende agora sua sessão de diagnóstico gratuita e descubra exatamente o que fazer para crescer nos marketplaces.
+            Agende agora sua sessÃ£o de diagnÃ³stico gratuita e descubra exatamente o que fazer para crescer nos marketplaces.
           </p>
           <a
-            href="https://wa.me/5511999999999?text=Olá%2C%20quero%20agendar%20meu%20diagnóstico%20gratuito%20de%20e-commerce"
+            href="https://wa.me/5511952286097?text=OlÃ¡%2C%20quero%20agendar%20meu%20diagnÃ³stico%20gratuito%20de%20e-commerce"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-white text-orange-600 font-bold px-10 py-4 rounded-xl hover:bg-orange-50 transition shadow-xl text-lg"
           >
-            Agendar diagnóstico gratuito
+            Agendar diagnÃ³stico gratuito
           </a>
         </div>
       </section>

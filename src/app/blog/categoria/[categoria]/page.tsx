@@ -1,4 +1,4 @@
-import { getPostsByCategory, getAllCategories, categoryToSlug } from '@/lib/posts';
+﻿import { getPostsByCategory, getAllCategories, categoryToSlug } from '@/lib/posts';
 import PostCard from '@/components/PostCard';
 import Breadcrumb from '@/components/Breadcrumb';
 import Link from 'next/link';
@@ -90,7 +90,7 @@ export default async function CategoryPage(
           Consultoria especializada em e-commerce e marketplaces.
         </p>
         <a
-          href="https://wa.me/5511999999999?text=Olá%2C%20vim%20pelo%20blog%20e%20quero%20saber%20mais%20sobre%20consultoria%20de%20e-commerce"
+          href="https://wa.me/5511952286097?text=Olá%2C%20vim%20pelo%20blog%20e%20quero%20saber%20mais%20sobre%20consultoria%20de%20e-commerce"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block bg-white text-orange-600 font-bold px-8 py-3 rounded-xl hover:bg-orange-50 transition text-sm"

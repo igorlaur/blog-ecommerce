@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { motion } from 'framer-motion';
 
 const fadeUp = (delay = 0) => ({
@@ -24,10 +24,10 @@ export default function HeroSection() {
         <motion.div {...fadeUp(0)} className="flex flex-wrap justify-center gap-3 mb-8">
           <span className="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-500/30 text-orange-300 text-sm font-medium px-4 py-1.5 rounded-full">
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            Especialista com experiência real em +R$5 milhões em vendas
+            Especialista com experiÃªncia real em +R$5 milhÃµes em vendas
           </span>
           <span className="inline-flex items-center gap-2 bg-black/40 border border-white/10 text-white text-sm font-bold px-4 py-1.5 rounded-full">
-            🖤 Especialista em Nicho Black
+            ðŸ–¤ Especialista em Nicho Black
           </span>
         </motion.div>
 
@@ -48,8 +48,8 @@ export default function HeroSection() {
           {...fadeUp(0.2)}
           className="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed"
         >
-          Operação real com <strong className="text-white">3.000+ SKUs</strong>, presença em Mercado Livre, Shopee, Magalu e muito mais. Especialistas em{' '}
-          <strong className="text-orange-400">nicho black</strong> — produtos importados exclusivos sem concorrência no Brasil.
+          OperaÃ§Ã£o real com <strong className="text-white">3.000+ SKUs</strong>, presenÃ§a em Mercado Livre, Shopee, Magalu e muito mais. Especialistas em{' '}
+          <strong className="text-orange-400">nicho black</strong> â€” produtos importados exclusivos sem concorrÃªncia no Brasil.
         </motion.p>
 
         {/* CTAs */}
@@ -61,7 +61,7 @@ export default function HeroSection() {
             Agendar Consultoria Gratuita
           </a>
           <a
-            href="https://wa.me/5511999999999"
+            href="https://wa.me/5511952286097"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-8 py-4 rounded-xl text-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/40 flex items-center justify-center gap-2"
@@ -79,7 +79,7 @@ export default function HeroSection() {
             { value: '+R$5M', label: 'em vendas' },
             { value: '3.000+', label: 'SKUs ativos' },
             { value: '9+', label: 'plataformas' },
-            { value: '100%', label: 'operação real' },
+            { value: '100%', label: 'operaÃ§Ã£o real' },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-2xl md:text-3xl font-extrabold text-white">{stat.value}</div>
