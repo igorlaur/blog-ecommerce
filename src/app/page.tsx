@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from 'next';
+import Link from 'next/link';
 import HeroSection from '@/components/landing/HeroSection';
 import AuthoritySection from '@/components/landing/AuthoritySection';
 import MarketplacesSection from '@/components/landing/MarketplacesSection';
@@ -30,6 +31,42 @@ export default function HomePage() {
       <HeroSection />
       <AuthoritySection />
       <MarketplacesSection />
+
+      {/* Ferramentas Gratuitas */}
+      <section className="bg-orange-50 border-y border-orange-100 py-10">
+        <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest text-orange-500 mb-1">Ferramentas gratuitas</p>
+            <h2 className="text-xl md:text-2xl font-extrabold text-gray-900 mb-1">
+              Calculadoras de Precificação para Marketplaces
+            </h2>
+            <p className="text-gray-500 text-sm max-w-md">
+              Calcule o preço de venda ideal no Mercado Livre, Shopee, Magalu e iFood. Inclui comissão, impostos, custos fixos e margem de lucro.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3 flex-shrink-0">
+            <Link
+              href="/ferramentas/calculadora-mercado-livre"
+              className="inline-flex items-center gap-2 bg-white border border-orange-200 text-orange-700 hover:bg-orange-500 hover:text-white hover:border-orange-500 font-semibold px-5 py-3 rounded-xl transition text-sm shadow-sm"
+            >
+              🛒 Mercado Livre
+            </Link>
+            <Link
+              href="/ferramentas/calculadora-shopee"
+              className="inline-flex items-center gap-2 bg-white border border-orange-200 text-orange-700 hover:bg-orange-500 hover:text-white hover:border-orange-500 font-semibold px-5 py-3 rounded-xl transition text-sm shadow-sm"
+            >
+              🧡 Shopee
+            </Link>
+            <Link
+              href="/ferramentas/calculadora-marketplace"
+              className="inline-flex items-center gap-2 bg-orange-500 text-white hover:bg-orange-600 font-semibold px-5 py-3 rounded-xl transition text-sm shadow-md"
+            >
+              Ver todas →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <ServicesSection />
       <DiferencialSection />
       <SobreSection />
