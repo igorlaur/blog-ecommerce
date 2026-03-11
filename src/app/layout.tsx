@@ -39,11 +39,13 @@ export const metadata: Metadata = {
     title: 'Consultoria de E-commerce | Escala Ecommerce Blog',
     description:
       'Estratégias reais de e-commerce e marketplaces. +R$5M em vendas, loja oficial Mercado Livre, operação multicanal.',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Escala Ecommerce – Consultoria de E-commerce e Marketplaces' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Consultoria de E-commerce | Escala Ecommerce Blog',
     description: 'Estratégias reais de e-commerce e marketplaces. +R$5M em vendas.',
+    images: ['/og-image.jpg'],
   },
   alternates: { canonical: SITE_URL },
 };
