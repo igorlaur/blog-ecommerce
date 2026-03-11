@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 import { motion } from 'framer-motion';
 
 export default function CTASection() {
@@ -11,7 +11,7 @@ export default function CTASection() {
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
       >
-        <div className="text-5xl mb-6">ðŸš€</div>
+        <div className="text-5xl mb-6">🚀</div>
         <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">Pronto para escalar suas vendas?</h2>
         <p className="text-slate-300 text-lg mb-10 max-w-lg mx-auto leading-relaxed">
           Agende uma consultoria estratégica gratuita e descubra como estruturar seu e-commerce para crescer de forma consistente.

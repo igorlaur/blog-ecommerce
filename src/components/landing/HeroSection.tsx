@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 import { motion } from 'framer-motion';
 
 const fadeUp = (delay = 0) => ({
@@ -27,7 +27,7 @@ export default function HeroSection() {
             Especialista com experiência real em +R$5 milhões em vendas
           </span>
           <span className="inline-flex items-center gap-2 bg-black/40 border border-white/10 text-white text-sm font-bold px-4 py-1.5 rounded-full">
-            ðŸ–¤ Especialista em Nicho Black
+            🖤 Especialista em Nicho Black
           </span>
         </motion.div>
 
