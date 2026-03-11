@@ -2,13 +2,13 @@
 import { motion } from 'framer-motion';
 
 const diferenciais = [
-  { icon: 'ðŸ”¥', title: 'ExperiÃªncia real', desc: 'NÃ£o ensinamos teoria. Aplicamos o que funciona na operaÃ§Ã£o Escala Ecommerce, com +R$5M em vendas.' },
-  { icon: 'ðŸŒŽ', title: 'Produtos exclusivos', desc: 'Importamos produtos sem concorrÃªncia no Brasil, com EAN prÃ³prio e marca registrada.' },
-  { icon: 'ðŸ–¤', title: 'Nicho Black', desc: 'Especialistas em produtos black: importaÃ§Ã£o exclusiva, sem concorrÃªncia direta e alta margem.' },
-  { icon: 'ðŸª', title: 'Multicanal de verdade', desc: 'OperaÃ§Ã£o simultÃ¢nea em 9+ plataformas, com estratÃ©gia especÃ­fica para cada canal.' },
-  { icon: 'ðŸ‘—', title: 'Marca PrÃ³pria', desc: 'FabricaÃ§Ã£o terceirizada de lingerie, moda praia e vestuÃ¡rio. Do design Ã  venda.' },
-  { icon: 'ðŸŽ¤', title: 'Creators & Artistas', desc: 'ExperiÃªncia vendendo para influenciadores e artistas de grande alcance.' },
-  { icon: 'ðŸ“Š', title: 'Dados e performance', desc: 'GestÃ£o baseada em mÃ©tricas: ads, catÃ¡logo, conversÃ£o e margem.' },
+  { icon: 'ðŸ”¥', title: 'Experiência real', desc: 'Não ensinamos teoria. Aplicamos o que funciona na operação Escala Ecommerce, com +R$5M em vendas.' },
+  { icon: 'ðŸŒŽ', title: 'Produtos exclusivos', desc: 'Importamos produtos sem concorrência no Brasil, com EAN próprio e marca registrada.' },
+  { icon: 'ðŸ–¤', title: 'Nicho Black', desc: 'Especialistas em produtos black: importação exclusiva, sem concorrência direta e alta margem.' },
+  { icon: 'ðŸª', title: 'Multicanal de verdade', desc: 'Operação simultânea em 9+ plataformas, com estratégia específica para cada canal.' },
+  { icon: 'ðŸ‘—', title: 'Marca Própria', desc: 'Fabricação terceirizada de lingerie, moda praia e vestuário. Do design à venda.' },
+  { icon: 'ðŸŽ¤', title: 'Creators & Artistas', desc: 'Experiência vendendo para influenciadores e artistas de grande alcance.' },
+  { icon: 'ðŸ“Š', title: 'Dados e performance', desc: 'Gestão baseada em métricas: ads, catálogo, conversão e margem.' },
 ];
 
 export default function DiferencialSection() {
@@ -20,10 +20,10 @@ export default function DiferencialSection() {
           <div className="flex-shrink-0 md:w-72">
             <span className="text-orange-500 font-semibold text-sm uppercase tracking-widest">Diferencial</span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2 mb-4">
-              Por que essa consultoria Ã© diferente?
+              Por que essa consultoria é diferente?
             </h2>
             <p className="text-gray-500 text-base leading-relaxed mb-8">
-              Aqui vocÃª nÃ£o paga por slides bonitos. VocÃª investe em estratÃ©gias testadas e validadas em uma operaÃ§Ã£o real de e-commerce multimilionÃ¡ria.
+              Aqui você não paga por slides bonitos. Você investe em estratégias testadas e validadas em uma operação real de e-commerce multimilionária.
             </p>
             <a
               href="https://wa.me/5511952286097"

@@ -24,7 +24,7 @@ export default function HeroSection() {
         <motion.div {...fadeUp(0)} className="flex flex-wrap justify-center gap-3 mb-8">
           <span className="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-500/30 text-orange-300 text-sm font-medium px-4 py-1.5 rounded-full">
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            Especialista com experiÃªncia real em +R$5 milhÃµes em vendas
+            Especialista com experiência real em +R$5 milhões em vendas
           </span>
           <span className="inline-flex items-center gap-2 bg-black/40 border border-white/10 text-white text-sm font-bold px-4 py-1.5 rounded-full">
             ðŸ–¤ Especialista em Nicho Black
@@ -48,8 +48,8 @@ export default function HeroSection() {
           {...fadeUp(0.2)}
           className="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed"
         >
-          OperaÃ§Ã£o real com <strong className="text-white">3.000+ SKUs</strong>, presenÃ§a em Mercado Livre, Shopee, Magalu e muito mais. Especialistas em{' '}
-          <strong className="text-orange-400">nicho black</strong> â€” produtos importados exclusivos sem concorrÃªncia no Brasil.
+          Operação real com <strong className="text-white">3.000+ SKUs</strong>, presença em Mercado Livre, Shopee, Magalu e muito mais. Especialistas em{' '}
+            <strong className="text-orange-400">nicho black</strong> e produtos importados exclusivos sem concorrência no Brasil.
         </motion.p>
 
         {/* CTAs */}
@@ -79,7 +79,7 @@ export default function HeroSection() {
             { value: '+R$5M', label: 'em vendas' },
             { value: '3.000+', label: 'SKUs ativos' },
             { value: '9+', label: 'plataformas' },
-            { value: '100%', label: 'operaÃ§Ã£o real' },
+            { value: '100%', label: 'operação real' },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <div className="text-2xl md:text-3xl font-extrabold text-white">{stat.value}</div>

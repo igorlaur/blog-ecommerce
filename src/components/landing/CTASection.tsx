@@ -14,7 +14,7 @@ export default function CTASection() {
         <div className="text-5xl mb-6">ðŸš€</div>
         <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">Pronto para escalar suas vendas?</h2>
         <p className="text-slate-300 text-lg mb-10 max-w-lg mx-auto leading-relaxed">
-          Agende uma consultoria estratÃ©gica gratuita e descubra como estruturar seu e-commerce para crescer de forma consistente.
+          Agende uma consultoria estratégica gratuita e descubra como estruturar seu e-commerce para crescer de forma consistente.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
@@ -32,7 +32,7 @@ export default function CTASection() {
             href="#servicos"
             className="bg-white/10 border border-white/20 text-white font-semibold px-8 py-4 rounded-xl text-lg hover:bg-white/20 transition-all focus:outline-none focus:ring-2 focus:ring-white/40"
           >
-            Ver ServiÃ§os
+            Ver Serviços
           </a>
         </div>
       </motion.div>

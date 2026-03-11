@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 
 const geist = Geist({ subsets: ['latin'], display: 'swap' });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://seusite.com.br';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://escalaecommerce.com.br';
 const SITE_NAME = 'Escala Ecommerce Blog';
 
 export const metadata: Metadata = {
