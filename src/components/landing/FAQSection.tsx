@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 
 const faqs = [
   {
@@ -44,7 +44,7 @@ function FAQItem({ faq, idx }: { faq: typeof faqs[0]; idx: number }) {
       </button>
       <AnimatePresence initial={false}>
         {open && (
-          <motion.div
+          <m.div
             id={`faq-${idx}`}
             key="content"
             initial={{ height: 0, opacity: 0 }}
@@ -54,7 +54,7 @@ function FAQItem({ faq, idx }: { faq: typeof faqs[0]; idx: number }) {
             className="overflow-hidden"
           >
             <p className="px-7 pb-6 text-gray-500 leading-relaxed">{faq.answer}</p>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </li>

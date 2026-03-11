@@ -1,5 +1,5 @@
 'use client';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const niches: Record<string, { label: string; color: string }> = {
   black: { label: 'Nicho Black', color: 'bg-black text-white' },
@@ -32,7 +32,7 @@ export default function MarketplacesSection() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {marketplaces.map((mkt, i) => (
-            <motion.div
+            <m.div
               key={mkt.name}
               className="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col items-center text-center hover:bg-white/10 transition-colors cursor-default"
               initial={{ opacity: 0, scale: 0.92 }}
@@ -57,7 +57,7 @@ export default function MarketplacesSection() {
                   </span>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

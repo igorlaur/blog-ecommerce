@@ -1,5 +1,5 @@
 'use client';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0.01, y: 32 },
@@ -21,7 +21,7 @@ export default function HeroSection() {
 
       <div className="relative max-w-4xl mx-auto text-center">
         {/* Badges */}
-        <motion.div {...fadeUp(0)} className="flex flex-wrap justify-center gap-3 mb-8">
+        <m.div {...fadeUp(0)} className="flex flex-wrap justify-center gap-3 mb-8">
           <span className="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-500/30 text-orange-300 text-sm font-medium px-4 py-1.5 rounded-full">
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
             Especialista com experiência real em +R$5 milhões em vendas
@@ -29,10 +29,10 @@ export default function HeroSection() {
           <span className="inline-flex items-center gap-2 bg-black/40 border border-white/10 text-white text-sm font-bold px-4 py-1.5 rounded-full">
             🖤 Especialista em Nicho Black
           </span>
-        </motion.div>
+        </m.div>
 
         {/* Headline */}
-        <motion.h1
+        <m.h1
           {...fadeUp(0.1)}
           className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight mb-6"
         >
@@ -41,19 +41,19 @@ export default function HeroSection() {
             Marketplaces
           </span>{' '}
           para quem quer vender de verdade
-        </motion.h1>
+        </m.h1>
 
         {/* Subtitle */}
-        <motion.p
+        <m.p
           {...fadeUp(0.2)}
           className="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed"
         >
           Operação real com <strong className="text-white">3.000+ SKUs</strong>, presença em Mercado Livre, Shopee, Magalu e muito mais. Especialistas em{' '}
             <strong className="text-orange-400">nicho black</strong> e produtos importados exclusivos sem concorrência no Brasil.
-        </motion.p>
+        </m.p>
 
         {/* CTAs */}
-        <motion.div {...fadeUp(0.3)} className="flex flex-col sm:flex-row gap-4 justify-center">
+        <m.div {...fadeUp(0.3)} className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="https://wa.me/5511952286097"
             target="_blank"
@@ -73,10 +73,10 @@ export default function HeroSection() {
             </svg>
             Falar no WhatsApp
           </a>
-        </motion.div>
+        </m.div>
 
         {/* Social proof stats */}
-        <motion.div {...fadeUp(0.4)} className="mt-14 flex flex-wrap justify-center gap-8">
+        <m.div {...fadeUp(0.4)} className="mt-14 flex flex-wrap justify-center gap-8">
           {[
             { value: '+R$5M', label: 'em vendas' },
             { value: '3.000+', label: 'SKUs ativos' },
@@ -88,7 +88,7 @@ export default function HeroSection() {
               <div className="text-sm text-slate-400 mt-1">{stat.label}</div>
             </div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

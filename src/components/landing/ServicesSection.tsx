@@ -1,5 +1,5 @@
 'use client';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const services = [
   { title: 'Estruturação de E-commerce', desc: 'Montamos a operação do zero: plataforma, catálogo, processos e logística.', icon: '🏗️' },
@@ -8,7 +8,6 @@ const services = [
   { title: 'Gestão de Tráfego Pago', desc: 'Campanhas no Mercado Livre Ads e Google Ads com foco em ROI.', icon: '💡' },
   { title: 'Desenvolvimento de Produtos', desc: 'Curadoria, importação, fabricação e criação de marca própria.', icon: '🎯' },
   { title: 'Estruturação de Catálogo', desc: 'Organização de 3.000+ SKUs com categorização e dados completos.', icon: '📦' },
-  { title: 'Estratégia de Crescimento', desc: 'Roadmap para escalar vendas, canais e equipe de forma sustentável.', icon: '🚀' },
 ];
 
 export default function ServicesSection() {
@@ -22,7 +21,7 @@ export default function ServicesSection() {
         </div>
         <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 list-none p-0">
           {services.map((s, i) => (
-            <motion.li
+            <m.li
               key={i}
               className="bg-white rounded-2xl border border-gray-100 p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3"
               initial={{ opacity: 0, y: 24 }}
@@ -33,7 +32,7 @@ export default function ServicesSection() {
               <div className="text-3xl">{s.icon}</div>
               <h3 className="font-bold text-gray-900 text-lg">{s.title}</h3>
               <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
-            </motion.li>
+            </m.li>
           ))}
         </ul>
       </div>

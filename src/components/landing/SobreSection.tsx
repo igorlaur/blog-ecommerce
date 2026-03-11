@@ -1,5 +1,5 @@
 'use client';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const badges = ['Nicho Black', 'Marketplace', 'Marca Própria', 'Importação', 'Fabricação', 'Tráfego Pago', 'Google Ads', 'ML Ads', 'EAN Próprio'];
 
@@ -9,7 +9,7 @@ export default function SobreSection() {
       <div className="max-w-5xl mx-auto">
         <div className="flex flex-col md:flex-row items-center gap-12">
           {/* Photo side */}
-          <motion.div
+          <m.div
             className="flex-shrink-0 flex flex-col items-center"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -23,10 +23,10 @@ export default function SobreSection() {
               <div className="font-bold text-gray-900 text-lg">Consultor Discretta</div>
               <div className="text-orange-500 text-sm font-medium">Especialista em E-commerce</div>
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Content side */}
-          <motion.div
+          <m.div
             className="flex-1"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -58,7 +58,7 @@ export default function SobreSection() {
                 </span>
               ))}
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

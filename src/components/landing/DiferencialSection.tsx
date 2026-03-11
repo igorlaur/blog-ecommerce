@@ -1,5 +1,5 @@
 'use client';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const diferenciais = [
   { icon: '🔥', title: 'Experiência real', desc: 'Não ensinamos teoria. Aplicamos o que funciona na operação Escala Ecommerce, com +R$5M em vendas.' },
@@ -37,7 +37,7 @@ export default function DiferencialSection() {
           {/* Right Grid */}
           <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
             {diferenciais.map((d, i) => (
-              <motion.div
+              <m.div
                 key={i}
                 className="flex items-start gap-3"
                 initial={{ opacity: 0, x: 20 }}
@@ -50,7 +50,7 @@ export default function DiferencialSection() {
                   <div className="font-bold text-gray-900">{d.title}</div>
                   <div className="text-gray-500 text-sm mt-1 leading-relaxed">{d.desc}</div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>

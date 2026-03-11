@@ -8,6 +8,7 @@ import SobreSection from '@/components/landing/SobreSection';
 import ResultadosSection from '@/components/landing/ResultadosSection';
 import CTASection from '@/components/landing/CTASection';
 import FAQSection from '@/components/landing/FAQSection';
+import MotionProvider from '@/components/landing/MotionProvider';
 
 export const metadata: Metadata = {
   title: 'Consultoria em E-commerce e Marketplaces | Escala Ecommerce',
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <>
+    <MotionProvider>
       <HeroSection />
       <AuthoritySection />
       <MarketplacesSection />
@@ -35,6 +36,6 @@ export default function HomePage() {
       <ResultadosSection />
       <CTASection />
       <FAQSection />
-    </>
+    </MotionProvider>
   );
 }

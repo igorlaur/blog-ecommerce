@@ -1,5 +1,5 @@
 'use client';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const stats = [
   { value: '+R$5 milhões', label: 'Faturados', icon: '💰', color: 'text-orange-500', bg: 'bg-orange-50' },
@@ -23,7 +23,7 @@ export default function AuthoritySection() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
           {stats.map((s, i) => (
-            <motion.div
+            <m.div
               key={s.value}
               className="rounded-2xl border border-gray-100 p-6 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow"
               initial={{ opacity: 0, y: 24 }}
@@ -34,7 +34,7 @@ export default function AuthoritySection() {
               <div className={`w-12 h-12 rounded-xl ${s.bg} flex items-center justify-center text-2xl mb-4`}>{s.icon}</div>
               <div className={`text-2xl font-extrabold ${s.color}`}>{s.value}</div>
               <div className="text-sm text-gray-500 mt-1">{s.label}</div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

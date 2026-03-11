@@ -1,5 +1,5 @@
 'use client';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const metrics = [
   { value: '+R$5M', label: 'em faturamento', desc: 'Vendas acumuladas nos últimos anos de operação.' },
@@ -20,19 +20,19 @@ export default function ResultadosSection() {
           </p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {metrics.map((m, i) => (
-            <motion.div
-              key={m.value}
+          {metrics.map((metric, i) => (
+            <m.div
+              key={metric.value}
               className="bg-white/10 backdrop-blur border border-white/20 rounded-2xl p-7 text-center hover:bg-white/20 transition-colors"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
             >
-              <div className="text-4xl font-extrabold text-white">{m.value}</div>
-              <div className="text-orange-200 font-semibold text-sm mt-1">{m.label}</div>
-              <div className="text-orange-100 text-xs mt-2 leading-relaxed">{m.desc}</div>
-            </motion.div>
+              <div className="text-4xl font-extrabold text-white">{metric.value}</div>
+              <div className="text-orange-200 font-semibold text-sm mt-1">{metric.label}</div>
+              <div className="text-orange-100 text-xs mt-2 leading-relaxed">{metric.desc}</div>
+            </m.div>
           ))}
         </div>
       </div>
