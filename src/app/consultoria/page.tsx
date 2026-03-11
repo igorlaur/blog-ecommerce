@@ -129,6 +129,9 @@ export default function ConsultoriaPage() {
               className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl transition shadow-lg shadow-orange-200"
             >
               Agendar diagnóstico
+            </a>
+            <Link
+              href="/blog"
               className="inline-block bg-white border border-gray-200 hover:border-orange-300 text-gray-700 font-semibold px-8 py-4 rounded-xl transition"
             >
               Ver artigos do blog
