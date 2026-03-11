@@ -48,7 +48,7 @@ const SERVICES = [
 ];
 
 const STEPS = [
-  { num: '01', title: 'Diagnóstico gratuito', desc: 'Análise completa da sua operação atual: canais, produtos, métricas e gargalos.' },
+  { num: '01', title: 'Diagnóstico inicial', desc: 'Análise completa da sua operação atual: canais, produtos, métricas e gargalos.' },
   { num: '02', title: 'Plano estratégico', desc: 'Elaboração de um plano de crescimento personalizado com metas claras e ações prioritárias.' },
   { num: '03', title: 'Implementação', desc: 'Acompanhamento semanal na execução das estratégias, ajustes e otimizações contínuas.' },
   { num: '04', title: 'Escala', desc: 'Expansão para novos canais, produtos e estratégias de tráfego pago para acelerar os resultados.' },
@@ -76,7 +76,7 @@ const FAQS = [
   },
   {
     q: 'Como funciona a primeira sessão?',
-    a: 'A primeira sessão é um diagnóstico gratuito. Analisamos sua operação e apresentamos as principais oportunidades de crescimento.',
+    a: 'A primeira sessão é um diagnóstico da sua operação. Analisamos sua operação e apresentamos as principais oportunidades de crescimento.',
   },
 ];
 
@@ -128,10 +128,7 @@ export default function ConsultoriaPage() {
               rel="noopener noreferrer"
               className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl transition shadow-lg shadow-orange-200"
             >
-              Agendar diagnóstico gratuito
-            </a>
-            <Link
-              href="/blog"
+              Agendar diagnóstico
               className="inline-block bg-white border border-gray-200 hover:border-orange-300 text-gray-700 font-semibold px-8 py-4 rounded-xl transition"
             >
               Ver artigos do blog

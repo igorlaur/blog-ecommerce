@@ -12,7 +12,7 @@ const SITE_NAME = 'Escala Ecommerce Blog';
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Consultoria de E-commerce | Escala Ecommerce Blog',
+    default: 'Consultoria de E-commerce | Escala Ecommerce',
     template: '%s | Escala Ecommerce',
   },
   description:

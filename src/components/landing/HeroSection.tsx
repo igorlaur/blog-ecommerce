@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 
 const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 32 },
+  initial: { opacity: 0.01, y: 32 },
   animate: { opacity: 1, y: 0 },
   transition: { delay, duration: 0.65, ease: 'easeOut' as const },
 });
@@ -55,7 +55,9 @@ export default function HeroSection() {
         {/* CTAs */}
         <motion.div {...fadeUp(0.3)} className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="#contato"
+            href="https://wa.me/5511952286097"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 rounded-xl text-lg shadow-lg shadow-orange-500/30 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-400"
           >
             Agendar Consultoria

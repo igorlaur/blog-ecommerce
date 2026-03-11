@@ -14,7 +14,7 @@ export default function CTASection() {
         <div className="text-5xl mb-6">🚀</div>
         <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">Pronto para escalar suas vendas?</h2>
         <p className="text-slate-300 text-lg mb-10 max-w-lg mx-auto leading-relaxed">
-          Agende uma consultoria estratégica gratuita e descubra como estruturar seu e-commerce para crescer de forma consistente.
+          Agende uma consultoria estratégica e descubra como estruturar seu e-commerce para crescer de forma consistente.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a

@@ -12,7 +12,7 @@ import FAQSection from '@/components/landing/FAQSection';
 export const metadata: Metadata = {
   title: 'Consultoria em E-commerce e Marketplaces | Escala Ecommerce',
   description:
-    'Consultoria especializada em e-commerce, Mercado Livre, Shopee, Magalu e marketplaces. +R$5M em vendas, 3.000+ SKUs, operação multicanal. Agende sua sessão estratégica gratuita.',
+    'Consultoria especializada em e-commerce, Mercado Livre, Shopee, Magalu e marketplaces. +R$5M em vendas, 3.000+ SKUs, operação multicanal. Agende sua sessão estratégica.',
   keywords: 'consultoria ecommerce, consultor ecommerce, consultoria mercado livre, consultoria shopee, nicho black, especialista ecommerce',
   alternates: { canonical: '/' },
   openGraph: {
