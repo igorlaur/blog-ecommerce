@@ -26,7 +26,8 @@ const SERVICES = [
     desc: 'Configuração de loja, campanhas, frete, produtos patrocinados e crescimento nas primeiras páginas.',
   },
   {
-    icon: '🏪    title: 'Estratégia Multicanal',
+    icon: '🏪',
+    title: 'Estratégia Multicanal',
     desc: 'Operação simultânea em Mercado Livre, Shopee, Magalu, Shein, iFood, Rappi e site próprio.',
   },
   {

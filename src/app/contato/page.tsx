@@ -116,7 +116,7 @@ export default function ContatoPage() {
 
           {/* Diagnóstico card */}
           <div className="bg-orange-50 border border-orange-100 rounded-2xl p-6">
-            <h3 className="font-bold text-gray-900 mb-1">🔍e é o diagnóstico gratuito?</h3>
+            <h3 className="font-bold text-gray-900 mb-1">🔍 O que é o diagnóstico gratuito?</h3>
             <ul className="space-y-2 text-sm text-gray-600 mt-3">
               {[
                 'Análise dos seus canais de venda atuais',
@@ -125,7 +125,7 @@ export default function ContatoPage() {
                 'Plano de ação com próximos passos',
               ].map(item => (
                 <li key={item} className="flex items-start gap-2">
-                  <span className="text-orange-500">âœ“</span>
+                  <span className="text-orange-500">✓</span>
                   <span>{item}</span>
                 </li>
               ))}
