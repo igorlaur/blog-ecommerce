@@ -16,32 +16,31 @@ export const metadata: Metadata = {
 
 const SERVICES = [
   {
-    icon: 'ðŸ›’',
+    icon: '🛒',
     title: 'Consultoria Mercado Livre',
     desc: 'Otimização de anúncios, ML Ads, reputação, catálogo e estratégias para atingir Loja Oficial.',
   },
   {
-    icon: 'ðŸ§¡',
+    icon: '🧡',
     title: 'Consultoria Shopee',
     desc: 'Configuração de loja, campanhas, frete, produtos patrocinados e crescimento nas primeiras páginas.',
   },
   {
-    icon: 'ðŸª',
-    title: 'Estratégia Multicanal',
+    icon: '🏪    title: 'Estratégia Multicanal',
     desc: 'Operação simultânea em Mercado Livre, Shopee, Magalu, Shein, iFood, Rappi e site próprio.',
   },
   {
-    icon: 'ðŸŽ¯',
+    icon: '🎯',
     title: 'Tráfego Pago (ML Ads + Google Ads)',
     desc: 'Campanhas de Product Ads, Sponsored Brands e Google Shopping com ROI positivo comprovado.',
   },
   {
-    icon: 'ðŸ“¦',
+    icon: '📦',
     title: 'Gestão de Catálogo e SKUs',
     desc: 'Estruturação de catálogo, gestão de EAN, variações, kits e bundles para maximizar ticket médio.',
   },
   {
-    icon: 'ðŸ·ï¸',
+    icon: '🏷️',
     title: 'Private Label e Importação',
     desc: 'Desenvolvimento de produtos de marca própria, importação, negociação com fornecedores e gestão de EAN.',
   },
@@ -228,3 +227,4 @@ export default function ConsultoriaPage() {
     </>
   );
 }
+    
