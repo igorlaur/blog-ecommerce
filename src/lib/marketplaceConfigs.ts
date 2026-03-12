@@ -83,5 +83,5 @@ export const ALL_CALCULATORS = [
   { key: 'shopee', name: 'Shopee', icon: '🧡', slug: 'calculadora-shopee' },
   { key: 'magalu', name: 'Magalu', icon: '🛍️', slug: 'calculadora-magalu' },
   { key: 'ifood', name: 'iFood', icon: '🍕', slug: 'calculadora-ifood' },
-  { key: 'marketplace', name: 'Genérica', icon: '🏪', slug: 'calculadora-marketplace' },
+  { key: 'marketplace', name: 'Global', icon: '🏪', slug: 'calculadora-marketplace' },
 ];

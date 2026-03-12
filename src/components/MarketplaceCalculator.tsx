@@ -143,8 +143,7 @@ function OtherCalculators({ current }: { current: string }) {
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export default function MarketplaceCalculator({ marketplace: initialMarketplace }: { marketplace: string }) {
-  const [activeMarketplace, setActiveMarketplace] = useState(initialMarketplace);
-  const config = getConfig(activeMarketplace);
+  const config = getConfig(initialMarketplace);
 
   const [global, setGlobal] = useState<GlobalConfig>({
     monthlyRevenue: 0,
@@ -165,20 +164,10 @@ export default function MarketplaceCalculator({ marketplace: initialMarketplace 
   const [globalOpen, setGlobalOpen] = useState(true);
   const [advancedMode, setAdvancedMode] = useState(false);
 
-  const switchMarketplace = useCallback((key: string) => {
-    const newConfig = getConfig(key);
-    setActiveMarketplace(key);
-    setProduct(prev => ({
-      ...prev,
-      commissionRate: newConfig.defaultCommission,
-      fixedFee: newConfig.defaultFixedFee,
-    }));
-  }, []);
-
   const updateGlobal = <K extends keyof GlobalConfig>(key: K) => (value: GlobalConfig[K]) =>
     setGlobal(prev => ({ ...prev, [key]: value }));
 
-  const isShopee = activeMarketplace === 'shopee';
+  const isShopee = initialMarketplace === 'shopee';
   const shopeeResult = isShopee && product.productCost > 0 ? calculateShopee(global, product) : null;
   const activeTier: ShopeeTier | null = shopeeResult?.tier ?? null;
   const result: CalculationResult | null = isShopee
@@ -245,22 +234,23 @@ export default function MarketplaceCalculator({ marketplace: initialMarketplace 
     <div className="max-w-5xl mx-auto px-6 py-10">
 
       {/* Marketplace switcher tabs */}
-      <div className="flex flex-wrap gap-2 mb-8 bg-gray-50 border border-gray-200 rounded-2xl p-2">
+      <nav aria-label="Selecionar marketplace" className="flex flex-wrap gap-2 mb-8 bg-gray-50 border border-gray-200 rounded-2xl p-2">
         {ALL_CALCULATORS.map(calc => (
-          <button
+          <Link
             key={calc.key}
-            onClick={() => switchMarketplace(calc.key)}
+            href={`/ferramentas/${calc.slug}`}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition flex-1 justify-center ${
-              activeMarketplace === calc.key
-                ? 'bg-orange-500 text-white shadow-md'
+              initialMarketplace === calc.key
+                ? 'bg-orange-500 text-white shadow-md pointer-events-none'
                 : 'text-gray-600 hover:bg-white hover:text-orange-500 hover:shadow-sm'
             }`}
+            aria-current={initialMarketplace === calc.key ? 'page' : undefined}
           >
             <span aria-hidden="true">{calc.icon}</span>
             {calc.name}
-          </button>
+          </Link>
         ))}
-      </div>
+      </nav>
 
       {/* Calculator grid */}
       <div className="grid lg:grid-cols-2 gap-8 mb-10">
@@ -503,7 +493,7 @@ export default function MarketplaceCalculator({ marketplace: initialMarketplace 
       </div>
 
       {/* Other calculators */}
-      <OtherCalculators current={activeMarketplace} />
+      <OtherCalculators current={initialMarketplace} />
     </div>
   );
 }
