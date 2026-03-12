@@ -19,13 +19,14 @@ interface InputFieldProps {
   max?: number;
   step?: number;
   note?: string;
+  required?: boolean;
 }
 
-function InputField({ id, label, value, onChange, prefix, suffix, min, max, step, note }: InputFieldProps) {
+function InputField({ id, label, value, onChange, prefix, suffix, min, max, step, note, required }: InputFieldProps) {
   return (
     <div>
       <label htmlFor={id} className="block text-sm font-semibold text-gray-700 mb-1">
-        {label}
+        {label}{required && <span className="text-red-500 ml-0.5" aria-hidden="true">*</span>}
       </label>
       <div className="relative">
         {prefix && (
@@ -145,10 +146,10 @@ export default function MarketplaceCalculator({ marketplace }: { marketplace: st
   const config = getConfig(marketplace);
 
   const [global, setGlobal] = useState<GlobalConfig>({
-    monthlyRevenue: 30000,
-    fixedCosts: 3000,
+    monthlyRevenue: 0,
+    fixedCosts: 0,
     taxRate: config.defaultTaxRate,
-    operationalCostRate: config.defaultOpCostRate,
+    operationalCostRate: 0,
     cpfSeller: false,
   });
 
@@ -257,15 +258,15 @@ export default function MarketplaceCalculator({ marketplace }: { marketplace: st
               <div id="global-content" className="mt-5 space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <InputField id="monthly-revenue" label="Faturamento Mensal" prefix="R$" value={global.monthlyRevenue}
-                    onChange={updateGlobal('monthlyRevenue')} min={0} step={1000} note="Seu faturamento estimado/mês" />
+                    onChange={updateGlobal('monthlyRevenue')} min={0} step={1000} note="Opcional — usado para rateio dos custos fixos" />
                   <InputField id="fixed-costs" label="Custos Fixos Mensais" prefix="R$" value={global.fixedCosts}
-                    onChange={updateGlobal('fixedCosts')} min={0} step={100} note={`Rateio: ${fixedCostRatePct}% do faturamento`} />
+                    onChange={updateGlobal('fixedCosts')} min={0} step={100} note={global.monthlyRevenue > 0 ? `Rateio: ${fixedCostRatePct}% do faturamento` : 'Opcional — informe o faturamento para ratear'} />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
-                  <InputField id="tax-rate" label="Impostos" suffix="%" value={global.taxRate}
+                  <InputField id="tax-rate" label="Impostos" suffix="%" value={global.taxRate} required
                     onChange={updateGlobal('taxRate')} min={0} max={50} step={0.5} note="Ex: Simples Nacional 6%" />
                   <InputField id="op-cost" label="Custo Operacional" suffix="%" value={global.operationalCostRate}
-                    onChange={updateGlobal('operationalCostRate')} min={0} max={50} step={0.5} note="Embalagem, mão de obra" />
+                    onChange={updateGlobal('operationalCostRate')} min={0} max={50} step={0.5} note="Opcional — embalagem, mão de obra, etc." />
                 </div>
                 <div className="flex items-center gap-3 pt-1">
                   <button
@@ -307,21 +308,26 @@ export default function MarketplaceCalculator({ marketplace }: { marketplace: st
                   className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-orange-400 focus:ring-1 focus:ring-orange-400 transition"
                 />
               </div>
-              <InputField id="product-cost" label="Custo do Produto" prefix="R$" value={product.productCost}
+              <InputField id="product-cost" label="Custo do Produto" prefix="R$" value={product.productCost} required
                 onChange={v => setProduct(prev => ({ ...prev, productCost: v }))} min={0} step={0.01}
                 note="Custo de aquisição ou fabricação (sem impostos nem frete)" />
               {isShopee ? (
                 <div className="rounded-xl border border-orange-200 bg-orange-50 overflow-hidden">
                   <div className="px-4 pt-3 pb-2">
-                    <p className="text-xs font-bold text-orange-700 uppercase tracking-wide">Taxas automáticas por faixa de preço</p>
-                    {activeTier && (
-                      <p className="text-xs text-orange-600 mt-0.5">✓ Faixa ativa: <strong>{activeTier.label}</strong></p>
+                    <p className="text-xs font-bold text-orange-700 uppercase tracking-wide">Taxas automáticas por faixa de preço de venda</p>
+                    {activeTier && result ? (
+                      <p className="text-xs text-orange-600 mt-0.5">
+                        ✓ Faixa ativa: <strong>{activeTier.label}</strong>
+                        <span className="ml-1 text-orange-500"> — preço de venda calculado: <strong>{formatCurrency(result.idealPrice)}</strong></span>
+                      </p>
+                    ) : (
+                      <p className="text-xs text-orange-400 mt-0.5">Informe o custo para identificar a faixa</p>
                     )}
                   </div>
                   <table className="w-full text-xs">
                     <thead className="bg-orange-100">
                       <tr>
-                        <th className="text-left px-4 py-1.5 font-semibold text-gray-600">Faixa</th>
+                        <th className="text-left px-4 py-1.5 font-semibold text-gray-600">Faixa do preço de venda</th>
                         <th className="text-center px-3 py-1.5 font-semibold text-gray-600">Comissão</th>
                         <th className="text-center px-3 py-1.5 font-semibold text-gray-600">Taxa fixa</th>
                       </tr>
@@ -341,18 +347,21 @@ export default function MarketplaceCalculator({ marketplace }: { marketplace: st
                       ))}
                     </tbody>
                   </table>
+                  <p className="text-xs text-orange-500 px-4 py-2 border-t border-orange-200">
+                    ⚠️ As faixas são definidas pelo <strong>preço de venda calculado</strong>, não pelo custo do produto.
+                  </p>
                 </div>
               ) : (
                 <div className="grid grid-cols-2 gap-4">
-                  <InputField id="commission-rate" label="Comissão do Marketplace" suffix="%" value={product.commissionRate}
-                    onChange={v => setProduct(prev => ({ ...prev, commissionRate: v }))} min={0} max={60} step={0.5}
-                    note={config.commissionNote} />
-                  <InputField id="fixed-fee" label="Taxa Fixa (R$)" prefix="R$" value={product.fixedFee}
+                <InputField id="commission-rate" label="Comissão do Marketplace" suffix="%" value={product.commissionRate} required
+                  onChange={v => setProduct(prev => ({ ...prev, commissionRate: v }))} min={0} max={60} step={0.5}
+                  note={config.commissionNote} />
+                <InputField id="fixed-fee" label="Taxa Fixa (R$)" prefix="R$" value={product.fixedFee} required
                     onChange={v => setProduct(prev => ({ ...prev, fixedFee: v }))} min={0} step={0.50}
                     note={config.fixedFeeNote} />
                 </div>
               )}
-              <InputField id="desired-margin" label="Margem de Lucro Desejada" suffix="%" value={product.desiredMargin}
+              <InputField id="desired-margin" label="Margem de Lucro Desejada" suffix="%" value={product.desiredMargin} required
                 onChange={v => setProduct(prev => ({ ...prev, desiredMargin: v }))} min={1} max={80} step={1}
                 note="Percentual do preço final que você quer de lucro líquido" />
             </div>
