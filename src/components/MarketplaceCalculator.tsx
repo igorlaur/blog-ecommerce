@@ -386,6 +386,7 @@ export default function MarketplaceCalculator({ marketplace }: { marketplace: st
                   <div className="bg-white/10 rounded-xl p-4">
                     <div className="text-xs text-slate-400 mb-0.5">Lucro / unidade</div>
                     <div className="text-xl font-bold text-green-400">{formatCurrency(result.profitPerUnit)}</div>
+                    <div className="text-xs text-green-500 mt-0.5">{result.idealPrice > 0 ? ((result.profitPerUnit / result.idealPrice) * 100).toFixed(1) : 0}% do preço</div>
                   </div>
                   <div className="bg-white/10 rounded-xl p-4">
                     <div className="text-xs text-slate-400 mb-0.5">Margem contrib.</div>
