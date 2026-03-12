@@ -24,6 +24,7 @@ export interface CalculationResult {
   idealPrice: number;
   profitPerUnit: number;
   contributionMargin: number;
+  contributionMarginPct: number;
   markup: number;
   breakdownItems: BreakdownItem[];
 }
@@ -56,6 +57,7 @@ export function calculate(
   const fixedCostValue = idealPrice * fixedCostRate;
   const contributionMargin =
     idealPrice - product.productCost - product.fixedFee - cpfFee - commissionValue - taxValue - opCostValue;
+  const contributionMarginPct = idealPrice > 0 ? (contributionMargin / idealPrice) * 100 : 0;
   const markup = product.productCost > 0 ? ((idealPrice / product.productCost) - 1) * 100 : 0;
 
   const breakdownItems: BreakdownItem[] = [
@@ -69,7 +71,7 @@ export function calculate(
     { label: `Lucro (${product.desiredMargin}%)`, value: profitPerUnit, color: '#22c55e' },
   ].filter(item => item.value > 0.001);
 
-  return { idealPrice, profitPerUnit, contributionMargin, markup, breakdownItems };
+  return { idealPrice, profitPerUnit, contributionMargin, contributionMarginPct, markup, breakdownItems };
 }
 
 export function getRecommendations(
@@ -118,4 +120,36 @@ export function getRecommendations(
 
 export function formatCurrency(value: number): string {
   return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
+}
+
+// ─── Shopee tiered fee logic ─────────────────────────────────────────────────
+
+export interface ShopeeTier {
+  minPrice: number;
+  maxPrice: number;
+  commission: number; // %
+  fixedFee: number;   // R$
+  label: string;
+}
+
+export const SHOPEE_TIERS: ShopeeTier[] = [
+  { minPrice: 0,    maxPrice: 79.99,    commission: 20, fixedFee: 4,  label: 'Até R$79,99' },
+  { minPrice: 80,   maxPrice: 99.99,    commission: 14, fixedFee: 16, label: 'R$80 a R$99,99' },
+  { minPrice: 100,  maxPrice: 199.99,   commission: 14, fixedFee: 20, label: 'R$100 a R$199,99' },
+  { minPrice: 200,  maxPrice: 499.99,   commission: 14, fixedFee: 26, label: 'R$200 a R$499,99' },
+  { minPrice: 500,  maxPrice: Infinity, commission: 14, fixedFee: 26, label: 'Acima de R$500' },
+];
+
+export function calculateShopee(
+  global: GlobalConfig,
+  product: ProductConfig,
+): (CalculationResult & { tier: ShopeeTier }) | null {
+  for (const tier of SHOPEE_TIERS) {
+    const tieredProduct: ProductConfig = { ...product, commissionRate: tier.commission, fixedFee: tier.fixedFee };
+    const result = calculate(global, tieredProduct);
+    if (result && result.idealPrice >= tier.minPrice && result.idealPrice <= tier.maxPrice) {
+      return { ...result, tier };
+    }
+  }
+  return null;
 }

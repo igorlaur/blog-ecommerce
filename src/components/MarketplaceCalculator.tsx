@@ -2,9 +2,9 @@
 
 import { useState, useCallback } from 'react';
 import Link from 'next/link';
-import { calculate, getRecommendations, formatCurrency } from '@/lib/calculatorLogic';
+import { calculate, calculateShopee, getRecommendations, formatCurrency, SHOPEE_TIERS } from '@/lib/calculatorLogic';
 import { getConfig, ALL_CALCULATORS } from '@/lib/marketplaceConfigs';
-import type { GlobalConfig, ProductConfig, CalculationResult, Recommendation } from '@/lib/calculatorLogic';
+import type { GlobalConfig, ProductConfig, CalculationResult, Recommendation, ShopeeTier } from '@/lib/calculatorLogic';
 
 // ─── Sub-components ──────────────────────────────────────────────────────────
 
@@ -36,8 +36,9 @@ function InputField({ id, label, value, onChange, prefix, suffix, min, max, step
         <input
           id={id}
           type="number"
-          value={value}
-          onChange={e => onChange(parseFloat(e.target.value) || 0)}
+          value={value === 0 ? '' : value}
+          onChange={e => onChange(e.target.valueAsNumber || 0)}
+          onFocus={e => e.target.select()}
           min={min}
           max={max}
           step={step ?? 1}
@@ -165,8 +166,16 @@ export default function MarketplaceCalculator({ marketplace }: { marketplace: st
   const updateGlobal = <K extends keyof GlobalConfig>(key: K) => (value: GlobalConfig[K]) =>
     setGlobal(prev => ({ ...prev, [key]: value }));
 
-  const result = product.productCost > 0 ? calculate(global, product) : null;
-  const recommendations = getRecommendations(global, product, result);
+  const isShopee = marketplace === 'shopee';
+  const shopeeResult = isShopee && product.productCost > 0 ? calculateShopee(global, product) : null;
+  const activeTier: ShopeeTier | null = shopeeResult?.tier ?? null;
+  const result: CalculationResult | null = isShopee
+    ? shopeeResult
+    : (product.productCost > 0 ? calculate(global, product) : null);
+  const effectiveProduct = isShopee && activeTier
+    ? { ...product, commissionRate: activeTier.commission, fixedFee: activeTier.fixedFee }
+    : product;
+  const recommendations = getRecommendations(global, effectiveProduct, result);
 
   const exportCSV = useCallback(() => {
     if (!result) return;
@@ -301,14 +310,48 @@ export default function MarketplaceCalculator({ marketplace }: { marketplace: st
               <InputField id="product-cost" label="Custo do Produto" prefix="R$" value={product.productCost}
                 onChange={v => setProduct(prev => ({ ...prev, productCost: v }))} min={0} step={0.01}
                 note="Custo de aquisição ou fabricação (sem impostos nem frete)" />
-              <div className="grid grid-cols-2 gap-4">
-                <InputField id="commission-rate" label="Comissão do Marketplace" suffix="%" value={product.commissionRate}
-                  onChange={v => setProduct(prev => ({ ...prev, commissionRate: v }))} min={0} max={60} step={0.5}
-                  note={config.commissionNote} />
-                <InputField id="fixed-fee" label="Taxa Fixa (R$)" prefix="R$" value={product.fixedFee}
-                  onChange={v => setProduct(prev => ({ ...prev, fixedFee: v }))} min={0} step={0.50}
-                  note={config.fixedFeeNote} />
-              </div>
+              {isShopee ? (
+                <div className="rounded-xl border border-orange-200 bg-orange-50 overflow-hidden">
+                  <div className="px-4 pt-3 pb-2">
+                    <p className="text-xs font-bold text-orange-700 uppercase tracking-wide">Taxas automáticas por faixa de preço</p>
+                    {activeTier && (
+                      <p className="text-xs text-orange-600 mt-0.5">✓ Faixa ativa: <strong>{activeTier.label}</strong></p>
+                    )}
+                  </div>
+                  <table className="w-full text-xs">
+                    <thead className="bg-orange-100">
+                      <tr>
+                        <th className="text-left px-4 py-1.5 font-semibold text-gray-600">Faixa</th>
+                        <th className="text-center px-3 py-1.5 font-semibold text-gray-600">Comissão</th>
+                        <th className="text-center px-3 py-1.5 font-semibold text-gray-600">Taxa fixa</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {SHOPEE_TIERS.map(tier => (
+                        <tr
+                          key={tier.label}
+                          className={activeTier?.label === tier.label
+                            ? 'bg-orange-500 text-white font-bold'
+                            : 'text-gray-600 even:bg-white odd:bg-orange-50/50'}
+                        >
+                          <td className="px-4 py-1.5">{tier.label}</td>
+                          <td className="text-center px-3 py-1.5">{tier.commission}%</td>
+                          <td className="text-center px-3 py-1.5">R${tier.fixedFee}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 gap-4">
+                  <InputField id="commission-rate" label="Comissão do Marketplace" suffix="%" value={product.commissionRate}
+                    onChange={v => setProduct(prev => ({ ...prev, commissionRate: v }))} min={0} max={60} step={0.5}
+                    note={config.commissionNote} />
+                  <InputField id="fixed-fee" label="Taxa Fixa (R$)" prefix="R$" value={product.fixedFee}
+                    onChange={v => setProduct(prev => ({ ...prev, fixedFee: v }))} min={0} step={0.50}
+                    note={config.fixedFeeNote} />
+                </div>
+              )}
               <InputField id="desired-margin" label="Margem de Lucro Desejada" suffix="%" value={product.desiredMargin}
                 onChange={v => setProduct(prev => ({ ...prev, desiredMargin: v }))} min={1} max={80} step={1}
                 note="Percentual do preço final que você quer de lucro líquido" />
@@ -338,6 +381,7 @@ export default function MarketplaceCalculator({ marketplace }: { marketplace: st
                   <div className="bg-white/10 rounded-xl p-4">
                     <div className="text-xs text-slate-400 mb-0.5">Margem contrib.</div>
                     <div className="text-xl font-bold text-blue-300">{formatCurrency(result.contributionMargin)}</div>
+                    <div className="text-xs text-blue-400 mt-0.5">{result.contributionMarginPct.toFixed(1)}% do preço</div>
                   </div>
                 </div>
                 {product.sku && (
