@@ -142,8 +142,9 @@ function OtherCalculators({ current }: { current: string }) {
 
 // ─── Main Component ───────────────────────────────────────────────────────────
 
-export default function MarketplaceCalculator({ marketplace }: { marketplace: string }) {
-  const config = getConfig(marketplace);
+export default function MarketplaceCalculator({ marketplace: initialMarketplace }: { marketplace: string }) {
+  const [activeMarketplace, setActiveMarketplace] = useState(initialMarketplace);
+  const config = getConfig(activeMarketplace);
 
   const [global, setGlobal] = useState<GlobalConfig>({
     monthlyRevenue: 0,
@@ -164,10 +165,20 @@ export default function MarketplaceCalculator({ marketplace }: { marketplace: st
   const [globalOpen, setGlobalOpen] = useState(true);
   const [advancedMode, setAdvancedMode] = useState(false);
 
+  const switchMarketplace = useCallback((key: string) => {
+    const newConfig = getConfig(key);
+    setActiveMarketplace(key);
+    setProduct(prev => ({
+      ...prev,
+      commissionRate: newConfig.defaultCommission,
+      fixedFee: newConfig.defaultFixedFee,
+    }));
+  }, []);
+
   const updateGlobal = <K extends keyof GlobalConfig>(key: K) => (value: GlobalConfig[K]) =>
     setGlobal(prev => ({ ...prev, [key]: value }));
 
-  const isShopee = marketplace === 'shopee';
+  const isShopee = activeMarketplace === 'shopee';
   const shopeeResult = isShopee && product.productCost > 0 ? calculateShopee(global, product) : null;
   const activeTier: ShopeeTier | null = shopeeResult?.tier ?? null;
   const result: CalculationResult | null = isShopee
@@ -232,6 +243,24 @@ export default function MarketplaceCalculator({ marketplace }: { marketplace: st
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-10">
+
+      {/* Marketplace switcher tabs */}
+      <div className="flex flex-wrap gap-2 mb-8 bg-gray-50 border border-gray-200 rounded-2xl p-2">
+        {ALL_CALCULATORS.map(calc => (
+          <button
+            key={calc.key}
+            onClick={() => switchMarketplace(calc.key)}
+            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition flex-1 justify-center ${
+              activeMarketplace === calc.key
+                ? 'bg-orange-500 text-white shadow-md'
+                : 'text-gray-600 hover:bg-white hover:text-orange-500 hover:shadow-sm'
+            }`}
+          >
+            <span aria-hidden="true">{calc.icon}</span>
+            {calc.name}
+          </button>
+        ))}
+      </div>
 
       {/* Calculator grid */}
       <div className="grid lg:grid-cols-2 gap-8 mb-10">
@@ -353,10 +382,10 @@ export default function MarketplaceCalculator({ marketplace }: { marketplace: st
                 </div>
               ) : (
                 <div className="grid grid-cols-2 gap-4">
-                <InputField id="commission-rate" label="Comissão do Marketplace" suffix="%" value={product.commissionRate} required
+                <InputField id="commission-rate" label="Comissão do Marketplace" suffix="%" value={product.commissionRate}
                   onChange={v => setProduct(prev => ({ ...prev, commissionRate: v }))} min={0} max={60} step={0.5}
                   note={config.commissionNote} />
-                <InputField id="fixed-fee" label="Taxa Fixa (R$)" prefix="R$" value={product.fixedFee} required
+                <InputField id="fixed-fee" label="Taxa Fixa (R$)" prefix="R$" value={product.fixedFee}
                     onChange={v => setProduct(prev => ({ ...prev, fixedFee: v }))} min={0} step={0.50}
                     note={config.fixedFeeNote} />
                 </div>
@@ -474,7 +503,7 @@ export default function MarketplaceCalculator({ marketplace }: { marketplace: st
       </div>
 
       {/* Other calculators */}
-      <OtherCalculators current={marketplace} />
+      <OtherCalculators current={activeMarketplace} />
     </div>
   );
 }
