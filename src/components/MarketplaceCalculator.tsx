@@ -130,7 +130,7 @@ function OtherCalculators({ current }: { current: string }) {
               href={`/ferramentas/${calc.slug}`}
               className="inline-flex items-center gap-2 bg-gray-50 hover:bg-orange-50 border border-gray-200 hover:border-orange-300 text-gray-700 hover:text-orange-700 px-4 py-2 rounded-xl text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-orange-400"
             >
-              <span aria-hidden="true">{calc.icon}</span>
+              <img src={`/logos/${calc.key}.svg`} alt="" aria-hidden="true" width="20" height="20" className="w-5 h-5 rounded-md flex-shrink-0" />
               {calc.name}
             </Link>
           ))}
@@ -248,7 +248,7 @@ export default function MarketplaceCalculator({ marketplace: initialMarketplace,
             }`}
             aria-current={initialMarketplace === calc.key ? 'page' : undefined}
           >
-            <span aria-hidden="true">{calc.icon}</span>
+            <img src={`/logos/${calc.key}.svg`} alt="" aria-hidden="true" width="20" height="20" className="w-5 h-5 rounded-md flex-shrink-0" />
             {calc.name}
           </Link>
         ))}

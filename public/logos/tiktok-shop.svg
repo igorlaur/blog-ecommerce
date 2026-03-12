@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="12" fill="#010101"/>
+  <!-- Note head -->
+  <ellipse cx="25" cy="46" rx="9" ry="6" transform="rotate(-15 25 46)" fill="white"/>
+  <ellipse cx="25" cy="46" rx="4.5" ry="3" transform="rotate(-15 25 46)" fill="#010101"/>
+  <!-- Stem -->
+  <line x1="34" y1="44" x2="34" y2="14" stroke="white" stroke-width="4" stroke-linecap="round"/>
+  <!-- Flag top-right (cyan) -->
+  <path d="M34 14c4 2 10 2 14 0v7c-4 2-10 2-14 0z" fill="#69C9D0"/>
+  <!-- Flag top-right (red overlay) -->
+  <path d="M34 14c4 2 10 2 14 0v7c-4 2-10 2-14 0z" fill="#EE1D52" opacity="0.7"/>
+  <!-- Flag top-right (white top) -->
+  <path d="M34 14c4 2 10 2 14 0v4c-4 2-10 2-14 0z" fill="white"/>
+</svg>

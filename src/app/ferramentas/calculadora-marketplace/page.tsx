@@ -161,7 +161,7 @@ export default function CalculadoraMarketplacePage() {
                 href={`/ferramentas/${calc.slug}`}
                 className={`flex flex-col items-center gap-2 bg-white border border-gray-200 rounded-2xl p-5 text-center transition group ${calc.color}`}
               >
-                <span className="text-3xl">{calc.icon}</span>
+                <img src={`/logos/${calc.key}.svg`} alt={calc.name} width="48" height="48" className="w-12 h-12" />
                 <span className="font-bold text-gray-900 text-sm">{calc.name}</span>
               </Link>
             ))}
