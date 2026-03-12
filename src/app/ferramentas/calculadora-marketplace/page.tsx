@@ -92,6 +92,38 @@ const SPECIFIC_CALCULATORS = [
     desc: 'Plano Básico 12% + R$1,00',
     color: 'hover:border-red-300 hover:bg-red-50',
   },
+  {
+    key: 'shein',
+    name: 'Shein',
+    icon: '👗',
+    slug: 'calculadora-shein',
+    desc: 'Comissão ~15%, sem taxa fixa',
+    color: 'hover:border-pink-300 hover:bg-pink-50',
+  },
+  {
+    key: '99food',
+    name: '99Food',
+    icon: '🚗',
+    slug: 'calculadora-99food',
+    desc: 'Plano Entrega ~27% + R$1,50',
+    color: 'hover:border-yellow-300 hover:bg-yellow-50',
+  },
+  {
+    key: 'tiktok-shop',
+    name: 'TikTok Shop',
+    icon: '🎵',
+    slug: 'calculadora-tiktok-shop',
+    desc: 'Comissão ~5%, sem taxa fixa',
+    color: 'hover:border-gray-300 hover:bg-gray-50',
+  },
+  {
+    key: 'amazon',
+    name: 'Amazon',
+    icon: '📦',
+    slug: 'calculadora-amazon',
+    desc: 'Taxa de referência ~12%',
+    color: 'hover:border-orange-300 hover:bg-orange-50',
+  },
 ];
 
 export default function CalculadoraMarketplacePage() {
@@ -131,7 +163,6 @@ export default function CalculadoraMarketplacePage() {
               >
                 <span className="text-3xl">{calc.icon}</span>
                 <span className="font-bold text-gray-900 text-sm">{calc.name}</span>
-                <span className="text-xs text-gray-400 group-hover:text-gray-600 transition">{calc.desc}</span>
               </Link>
             ))}
           </div>
@@ -139,7 +170,7 @@ export default function CalculadoraMarketplacePage() {
       </section>
 
       {/* Generic Calculator */}
-      <MarketplaceCalculator marketplace="marketplace" />
+      <MarketplaceCalculator marketplace="marketplace" hideTabs />
 
       {/* CTA */}
       <section className="bg-gradient-to-br from-orange-500 to-orange-600 py-14">

@@ -142,7 +142,7 @@ function OtherCalculators({ current }: { current: string }) {
 
 // ─── Main Component ───────────────────────────────────────────────────────────
 
-export default function MarketplaceCalculator({ marketplace: initialMarketplace }: { marketplace: string }) {
+export default function MarketplaceCalculator({ marketplace: initialMarketplace, hideTabs }: { marketplace: string; hideTabs?: boolean }) {
   const config = getConfig(initialMarketplace);
 
   const [global, setGlobal] = useState<GlobalConfig>({
@@ -159,10 +159,12 @@ export default function MarketplaceCalculator({ marketplace: initialMarketplace 
     commissionRate: config.defaultCommission,
     fixedFee: config.defaultFixedFee,
     desiredMargin: 20,
+    packagingCost: 0,
   });
 
   const [globalOpen, setGlobalOpen] = useState(true);
   const [advancedMode, setAdvancedMode] = useState(false);
+  const [showPackaging, setShowPackaging] = useState(false);
 
   const updateGlobal = <K extends keyof GlobalConfig>(key: K) => (value: GlobalConfig[K]) =>
     setGlobal(prev => ({ ...prev, [key]: value }));
@@ -234,7 +236,7 @@ export default function MarketplaceCalculator({ marketplace: initialMarketplace 
     <div className="max-w-5xl mx-auto px-6 py-10">
 
       {/* Marketplace switcher tabs */}
-      <nav aria-label="Selecionar marketplace" className="flex flex-wrap gap-2 mb-8 bg-gray-50 border border-gray-200 rounded-2xl p-2">
+      {!hideTabs && <nav aria-label="Selecionar marketplace" className="flex flex-wrap gap-2 mb-8 bg-gray-50 border border-gray-200 rounded-2xl p-2">
         {ALL_CALCULATORS.map(calc => (
           <Link
             key={calc.key}
@@ -250,7 +252,7 @@ export default function MarketplaceCalculator({ marketplace: initialMarketplace 
             {calc.name}
           </Link>
         ))}
-      </nav>
+      </nav>}
 
       {/* Calculator grid */}
       <div className="grid lg:grid-cols-2 gap-8 mb-10">
@@ -383,6 +385,40 @@ export default function MarketplaceCalculator({ marketplace: initialMarketplace 
               <InputField id="desired-margin" label="Margem de Lucro Desejada" suffix="%" value={product.desiredMargin} required
                 onChange={v => setProduct(prev => ({ ...prev, desiredMargin: v }))} min={1} max={80} step={1}
                 note="Percentual do preço final que você quer de lucro líquido" />
+
+              {/* Embalagem opcional */}
+              <div className="pt-1">
+                <div className="flex items-center gap-3">
+                  <button
+                    role="switch"
+                    aria-checked={showPackaging}
+                    onClick={() => {
+                      setShowPackaging(p => !p);
+                      if (showPackaging) setProduct(prev => ({ ...prev, packagingCost: 0 }));
+                    }}
+                    className={`relative inline-flex h-6 w-11 flex-shrink-0 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-orange-400 ${showPackaging ? 'bg-orange-500' : 'bg-gray-200'}`}
+                    aria-label="Incluir custo de embalagem"
+                  >
+                    <span className={`inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform ${showPackaging ? 'translate-x-6' : 'translate-x-1'}`} />
+                  </button>
+                  <span
+                    className="text-sm text-gray-700 cursor-pointer select-none"
+                    onClick={() => {
+                      setShowPackaging(p => !p);
+                      if (showPackaging) setProduct(prev => ({ ...prev, packagingCost: 0 }));
+                    }}
+                  >
+                    Incluir custo de embalagem <span className="text-gray-400 font-normal">(opcional)</span>
+                  </span>
+                </div>
+                {showPackaging && (
+                  <div className="mt-3">
+                    <InputField id="packaging-cost" label="Custo de Embalagem" prefix="R$" value={product.packagingCost}
+                      onChange={v => setProduct(prev => ({ ...prev, packagingCost: v }))} min={0} step={0.01}
+                      note="Caixa, plástico bolha, fita, etiqueta — por unidade" />
+                  </div>
+                )}
+              </div>
             </div>
           </section>
         </div>

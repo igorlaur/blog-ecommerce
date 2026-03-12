@@ -31,6 +31,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/ferramentas/calculadora-shopee`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/ferramentas/calculadora-magalu`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${SITE_URL}/ferramentas/calculadora-ifood`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${SITE_URL}/ferramentas/calculadora-shein`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${SITE_URL}/ferramentas/calculadora-99food`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${SITE_URL}/ferramentas/calculadora-tiktok-shop`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${SITE_URL}/ferramentas/calculadora-amazon`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     ...categoryUrls,
     ...postUrls,
   ];

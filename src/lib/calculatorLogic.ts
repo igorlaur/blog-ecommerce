@@ -12,6 +12,7 @@ export interface ProductConfig {
   commissionRate: number;
   fixedFee: number;
   desiredMargin: number;
+  packagingCost: number;
 }
 
 export interface BreakdownItem {
@@ -45,24 +46,26 @@ export function calculate(
   const margin = product.desiredMargin / 100;
   const fixedCostRate = global.monthlyRevenue > 0 ? global.fixedCosts / global.monthlyRevenue : 0;
   const cpfFee = global.cpfSeller ? 3 : 0;
+  const packaging = product.packagingCost ?? 0;
 
   const denominator = 1 - commission - tax - opCost - fixedCostRate - margin;
   if (denominator <= 0.001) return null;
 
-  const idealPrice = (product.productCost + product.fixedFee + cpfFee) / denominator;
+  const idealPrice = (product.productCost + product.fixedFee + cpfFee + packaging) / denominator;
   const profitPerUnit = idealPrice * margin;
   const commissionValue = idealPrice * commission;
   const taxValue = idealPrice * tax;
   const opCostValue = idealPrice * opCost;
   const fixedCostValue = idealPrice * fixedCostRate;
   const contributionMargin =
-    idealPrice - product.productCost - product.fixedFee - cpfFee - commissionValue - taxValue - opCostValue;
+    idealPrice - product.productCost - product.fixedFee - cpfFee - packaging - commissionValue - taxValue - opCostValue;
   const contributionMarginPct = idealPrice > 0 ? (contributionMargin / idealPrice) * 100 : 0;
   const markup = product.productCost > 0 ? ((idealPrice / product.productCost) - 1) * 100 : 0;
 
   const breakdownItems: BreakdownItem[] = [
     { label: 'Custo do produto', value: product.productCost, color: '#3b82f6' },
     { label: 'Taxa fixa', value: product.fixedFee, color: '#ef4444' },
+    ...(packaging > 0 ? [{ label: 'Embalagem', value: packaging, color: '#0ea5e9' }] : []),
     ...(global.cpfSeller ? [{ label: 'Taxa CPF', value: cpfFee, color: '#ec4899' }] : []),
     { label: `Comissão (${product.commissionRate}%)`, value: commissionValue, color: '#f97316' },
     { label: `Impostos (${global.taxRate}%)`, value: taxValue, color: '#a855f7' },
