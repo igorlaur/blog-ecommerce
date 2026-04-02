@@ -1,5 +1,6 @@
 ﻿import { getPostBySlug, getAllPosts, getRelatedPosts, extractToc, toSlugId } from '@/lib/posts';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
 import type { Metadata } from 'next';
 import TableOfContents from '@/components/TableOfContents';
 import AuthorBox from '@/components/AuthorBox';
@@ -181,8 +182,8 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             </div>
 
             {/* MDX content */}
-            <div className="mt-8 prose prose-gray prose-lg max-w-none prose-headings:font-extrabold prose-headings:text-gray-900 prose-p:text-gray-700 prose-li:text-gray-700 prose-strong:text-gray-900">
-              <MDXRemote source={post.content} components={mdxComponents} />
+            <div className="mt-8 prose prose-gray prose-lg max-w-none prose-headings:font-extrabold prose-headings:text-gray-900 prose-p:text-gray-700 prose-li:text-gray-700 prose-strong:text-gray-900 prose-table:w-full prose-th:bg-gray-100 prose-th:text-left prose-th:px-3 prose-th:py-2 prose-td:px-3 prose-td:py-2 prose-td:border prose-td:border-gray-200 prose-th:border prose-th:border-gray-200">
+              <MDXRemote source={post.content} components={mdxComponents} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
             </div>
 
             {/* Inline CTA */}
